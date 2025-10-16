@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Persuasion Challenge</title>
 
-  <!-- Tailwind CSS - Pre-compiled version (no DOM watching) -->
-  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@3.4.1/dist/tailwind.min.css">
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Disable Tailwind's observer immediately to prevent flashing
+    tailwind.config = {
+      observer: false
+    }
+  </script>
 
   <!-- Custom Styles -->
   <style>
