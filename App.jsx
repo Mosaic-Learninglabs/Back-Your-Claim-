@@ -184,8 +184,16 @@ const CHARTS = [
 ];
 
 const BarChart = ({ data, title, xLabel, yLabel }) => {
-  const max = Math.max(...Object.values(data));
+  const values = Object.values(data);
   const entries = Object.entries(data);
+  const max = Math.max(...values);
+  const min = Math.min(...values);
+
+  // Calculate appropriate scale: start from 0 unless all values are high (> 50)
+  // This ensures students see accurate proportions
+  const scaleMin = min > 50 ? Math.floor(min * 0.8 / 10) * 10 : 0;
+  const scaleMax = Math.ceil(max * 1.1 / 10) * 10;
+  const range = scaleMax - scaleMin;
 
   return (
     <div className="w-full">
@@ -198,38 +206,44 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
 
         {/* Chart area */}
         <div className="flex items-end justify-around h-56 gap-3 px-8 pt-4 border-l-4 border-b-4 border-cyan-400/70 rounded-bl-lg relative">
-          {/* Y-axis grid lines */}
+          {/* Y-axis grid lines with labels */}
           <div className="absolute left-8 right-0 top-4 bottom-12 pointer-events-none">
-            {[0, 25, 50, 75, 100].map((percent) => (
-              <div
-                key={percent}
-                className="absolute left-0 right-0 border-t border-gray-600/30"
-                style={{ bottom: `${percent}%` }}
-              />
-            ))}
+            {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
+              const labelValue = Math.round(scaleMin + ratio * range);
+              return (
+                <div key={ratio} className="absolute left-0 right-0" style={{ bottom: `${ratio * 100}%` }}>
+                  <div className="border-t border-gray-600/50"></div>
+                  <div className="absolute -left-8 -translate-y-1/2 text-xs text-gray-400 font-bold">
+                    {labelValue}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
-          {entries.map(([label, value]) => (
-            <div key={label} className="flex flex-col items-center flex-1 h-full justify-end relative z-10">
-              {/* Value label on top of bar */}
-              <div className="text-sm font-black text-white mb-2 bg-slate-900/95 px-3 py-1.5 rounded-lg shadow-lg border border-cyan-400/30">
-                {value}
+          {entries.map(([label, value]) => {
+            const heightPercent = ((value - scaleMin) / range) * 100;
+            return (
+              <div key={label} className="flex flex-col items-center flex-1 h-full justify-end relative z-10">
+                {/* Value label on top of bar */}
+                <div className="text-sm font-black text-white mb-2 bg-slate-900/95 px-3 py-1.5 rounded-lg shadow-lg border border-cyan-400/30">
+                  {value}
+                </div>
+                {/* Bar */}
+                <div
+                  className="w-full rounded-t-xl shadow-lg transition-all duration-300 hover:opacity-90"
+                  style={{
+                    height: `${Math.max(heightPercent, 2)}%`,
+                    background: 'linear-gradient(to top, #06b6d4 0%, #8b5cf6 100%)',
+                  }}
+                />
+                {/* X-axis label */}
+                <div className="text-sm text-gray-100 mt-3 text-center w-full font-bold leading-tight px-1">
+                  {label}
+                </div>
               </div>
-              {/* Bar */}
-              <div
-                className="w-full rounded-t-xl shadow-lg transition-all duration-300 hover:opacity-90"
-                style={{
-                  height: `${(value / max) * 100}%`,
-                  background: 'linear-gradient(to top, #06b6d4 0%, #8b5cf6 100%)',
-                  minHeight: '20px'
-                }}
-              />
-              {/* X-axis label */}
-              <div className="text-sm text-gray-100 mt-3 text-center w-full font-bold leading-tight px-1">
-                {label}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* X-axis label */}
@@ -246,7 +260,12 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
   const labels = Object.keys(data);
   const max = Math.max(...values);
   const min = Math.min(...values);
-  const range = max - min || 1;
+
+  // Calculate appropriate scale: start from 0 unless all values are high (> 50)
+  // This ensures students see accurate proportions
+  const scaleMin = min > 50 ? Math.floor(min * 0.8 / 10) * 10 : 0;
+  const scaleMax = Math.ceil(max * 1.1 / 10) * 10;
+  const range = scaleMax - scaleMin;
 
   // Add padding to show labels clearly
   const padding = { top: 40, right: 40, bottom: 60, left: 60 };
@@ -263,20 +282,34 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
         </div>
 
         <svg width="100%" height="240" viewBox="0 0 400 240" className="mx-auto">
-          {/* Grid lines */}
-          {[0, 0.25, 0.5, 0.75, 1].map((ratio) => (
-            <line
-              key={ratio}
-              x1={padding.left}
-              y1={padding.top + (1 - ratio) * chartHeight}
-              x2={padding.left + chartWidth}
-              y2={padding.top + (1 - ratio) * chartHeight}
-              stroke="#4b5563"
-              strokeWidth="1"
-              opacity="0.3"
-              strokeDasharray="4 4"
-            />
-          ))}
+          {/* Grid lines with Y-axis labels */}
+          {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
+            const labelValue = (scaleMin + ratio * range).toFixed(1);
+            return (
+              <g key={ratio}>
+                <line
+                  x1={padding.left}
+                  y1={padding.top + (1 - ratio) * chartHeight}
+                  x2={padding.left + chartWidth}
+                  y2={padding.top + (1 - ratio) * chartHeight}
+                  stroke="#4b5563"
+                  strokeWidth="1"
+                  opacity="0.3"
+                  strokeDasharray="4 4"
+                />
+                <text
+                  x={padding.left - 8}
+                  y={padding.top + (1 - ratio) * chartHeight + 4}
+                  textAnchor="end"
+                  fill="#9ca3af"
+                  fontSize="11"
+                  fontWeight="700"
+                >
+                  {labelValue}
+                </text>
+              </g>
+            );
+          })}
 
           {/* Axes */}
           <line
@@ -307,9 +340,9 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
           {values.map((v, i) => {
             if (i === values.length - 1) return null;
             const x1 = padding.left + (i / (values.length - 1)) * chartWidth;
-            const y1 = padding.top + (1 - (v - min) / range) * chartHeight;
+            const y1 = padding.top + (1 - (v - scaleMin) / range) * chartHeight;
             const x2 = padding.left + ((i + 1) / (values.length - 1)) * chartWidth;
-            const y2 = padding.top + (1 - (values[i + 1] - min) / range) * chartHeight;
+            const y2 = padding.top + (1 - (values[i + 1] - scaleMin) / range) * chartHeight;
             return (
               <line
                 key={i}
@@ -327,7 +360,7 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
           {/* Data points */}
           {values.map((v, i) => {
             const x = padding.left + (i / (values.length - 1)) * chartWidth;
-            const y = padding.top + (1 - (v - min) / range) * chartHeight;
+            const y = padding.top + (1 - (v - scaleMin) / range) * chartHeight;
             return (
               <g key={i}>
                 {/* Point */}
