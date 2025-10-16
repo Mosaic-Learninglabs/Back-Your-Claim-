@@ -376,6 +376,13 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
   );
 };
 
+// Screen transition wrapper with fade animation - MUST be outside App to prevent re-creation
+const ScreenWrapper = ({ children, className = "" }) => (
+  <div className={`animate-fadeIn ${className}`}>
+    {children}
+  </div>
+);
+
 function App() {
   const [screen, setScreen] = useState('mode');
   const [mode, setMode] = useState(null);
@@ -471,13 +478,6 @@ function App() {
     setTimer(120);
     setHint(false);
   };
-
-  // Screen transition wrapper with fade animation
-  const ScreenWrapper = ({ children, className = "" }) => (
-    <div className={`animate-fadeIn ${className}`}>
-      {children}
-    </div>
-  );
 
   if (screen === 'mode') {
     return (
