@@ -721,11 +721,13 @@ function App() {
                 </div>
 
                 <div className="bg-blue-900/50 backdrop-blur-xl border-2 border-blue-400 rounded-2xl p-4 md:p-6 shadow-2xl">
-                  <div className="text-center text-blue-200 font-black text-lg md:text-xl mb-4">📝 PRESENTERS: Starters</div>
+                  <div className="text-center text-blue-200 font-black text-lg md:text-xl mb-2">📝 PRESENTERS: Use in Order</div>
+                  <div className="text-center text-blue-100 text-sm mb-4 font-bold">Say all 3 sentences OUT LOUD ⬇️</div>
                   <div className="space-y-3">
                     {chart.starters.map((s, i) => (
-                      <div key={i} className="bg-slate-800/80 rounded-xl p-3 text-white text-sm md:text-base leading-relaxed">
-                        {s}
+                      <div key={i} className="bg-slate-800/80 rounded-xl p-3 text-white text-sm md:text-base leading-relaxed flex gap-3">
+                        <div className="text-2xl font-black text-cyan-300 flex-shrink-0">{i + 1}.</div>
+                        <div className="flex-1">{s}</div>
                       </div>
                     ))}
                   </div>
