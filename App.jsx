@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+const { useState, useEffect } = React;
 
 const CHARTS = [
   {
@@ -376,7 +376,7 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
   );
 };
 
-export default function App() {
+function App() {
   const [screen, setScreen] = useState('mode');
   const [mode, setMode] = useState(null);
   const [teamA, setTeamA] = useState({ p1: '', p2: '', score: 0 });
