@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Persuasion Challenge</title>
 
-  <!-- Tailwind CSS CDN with observer disabled -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <!-- Tailwind CSS - Pre-compiled version (no DOM watching) -->
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@3.4.1/dist/tailwind.min.css">
 
   <!-- Custom Styles -->
   <style>
@@ -57,27 +57,6 @@
   <script type="text/babel">
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<App />);
-  </script>
-
-  <!-- Disable Tailwind's MutationObserver to prevent flashing -->
-  <script>
-    window.addEventListener('load', function() {
-      // Give Tailwind a moment to finish initial processing
-      setTimeout(function() {
-        // Stop Tailwind from watching DOM changes
-        if (window.__tw_reprocess) {
-          window.__tw_reprocess = function() {};
-        }
-        // Disconnect any mutation observers
-        if (window.MutationObserver) {
-          const originalObserve = MutationObserver.prototype.observe;
-          MutationObserver.prototype.observe = function() {
-            // Block new observers from being created
-            return;
-          };
-        }
-      }, 1000);
-    });
   </script>
 </body>
 </html>
