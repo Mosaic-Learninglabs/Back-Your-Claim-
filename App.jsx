@@ -198,22 +198,22 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
   return (
     <div className="w-full">
       <h4 className="text-lg font-bold text-center mb-6 text-cyan-200 px-2">{title}</h4>
-      <div className="relative px-4 pb-2 pl-16">
+      <div className="relative px-4 pb-2 pl-20">
         {/* Y-axis label */}
-        <div className="absolute left-2 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-black text-cyan-200 whitespace-nowrap">
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-black text-cyan-200 whitespace-nowrap">
           {yLabel}
         </div>
 
         {/* Chart area */}
-        <div className="flex items-end justify-around h-56 gap-3 pl-12 pr-4 pt-4 border-l-4 border-b-4 border-cyan-400/70 rounded-bl-lg relative">
+        <div className="flex items-end justify-around h-56 gap-3 pl-16 pr-4 pt-4 border-l-4 border-b-4 border-cyan-400/70 rounded-bl-lg relative">
           {/* Y-axis grid lines with labels */}
-          <div className="absolute left-12 right-4 top-4 bottom-12 pointer-events-none">
+          <div className="absolute left-16 right-4 top-4 bottom-12 pointer-events-none">
             {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
               const labelValue = Math.round(scaleMin + ratio * range);
               return (
                 <div key={ratio} className="absolute left-0 right-0" style={{ bottom: `${ratio * 100}%` }}>
                   <div className="border-t border-gray-600/50"></div>
-                  <div className="absolute -left-11 -translate-y-1/2 text-sm text-gray-200 font-bold w-10 text-right">
+                  <div className="absolute -left-[3.5rem] -translate-y-1/2 text-sm text-gray-200 font-bold w-12 text-right">
                     {labelValue}
                   </div>
                 </div>
@@ -268,16 +268,16 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
   const range = scaleMax - scaleMin;
 
   // Add padding to show labels clearly - more space for larger labels
-  const padding = { top: 40, right: 40, bottom: 70, left: 70 };
+  const padding = { top: 40, right: 40, bottom: 70, left: 75 };
   const chartWidth = 400 - padding.left - padding.right;
   const chartHeight = 240 - padding.top - padding.bottom;
 
   return (
     <div className="w-full">
       <h4 className="text-lg font-bold text-center mb-6 text-cyan-200 px-2">{title}</h4>
-      <div className="relative">
+      <div className="relative pl-4">
         {/* Y-axis label */}
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-black text-cyan-200 whitespace-nowrap">
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-black text-cyan-200 whitespace-nowrap">
           {yLabel}
         </div>
 
@@ -298,7 +298,7 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
                   strokeDasharray="4 4"
                 />
                 <text
-                  x={padding.left - 10}
+                  x={padding.left - 12}
                   y={padding.top + (1 - ratio) * chartHeight + 5}
                   textAnchor="end"
                   fill="#e5e7eb"
