@@ -205,9 +205,9 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
         </div>
 
         {/* Chart area */}
-        <div className="flex items-end justify-around h-56 gap-3 pl-16 pr-4 pt-4 border-l-4 border-b-4 border-cyan-400/70 rounded-bl-lg relative">
+        <div className="flex items-end justify-around h-64 gap-3 pl-16 pr-4 pt-8 pb-2 border-l-4 border-b-4 border-cyan-400/70 rounded-bl-lg relative">
           {/* Y-axis grid lines with labels */}
-          <div className="absolute left-16 right-4 top-4 bottom-12 pointer-events-none">
+          <div className="absolute left-16 right-4 top-8 bottom-14 pointer-events-none">
             {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
               const labelValue = Math.round(scaleMin + ratio * range);
               return (
@@ -224,21 +224,22 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
           {entries.map(([label, value]) => {
             const heightPercent = ((value - scaleMin) / range) * 100;
             return (
-              <div key={label} className="flex flex-col items-center flex-1 h-full justify-end relative z-10">
+              <div key={label} className="flex flex-col items-center flex-1 justify-end relative z-10" style={{ height: 'calc(100% - 3.5rem)' }}>
                 {/* Value label on top of bar */}
-                <div className="text-sm font-black text-white mb-2 bg-slate-900/95 px-3 py-1.5 rounded-lg shadow-lg border border-cyan-400/30">
+                <div className="text-sm font-black text-white mb-2 bg-slate-900/95 px-3 py-1.5 rounded-lg shadow-lg border border-cyan-400/30 absolute" style={{ bottom: `${heightPercent}%`, transform: 'translateY(-100%)' }}>
                   {value}
                 </div>
                 {/* Bar */}
                 <div
                   className="w-full rounded-t-xl shadow-lg transition-all duration-300 hover:opacity-90"
                   style={{
-                    height: `${Math.max(heightPercent, 2)}%`,
+                    height: `${heightPercent}%`,
                     background: 'linear-gradient(to top, #06b6d4 0%, #8b5cf6 100%)',
+                    minHeight: '4px',
                   }}
                 />
                 {/* X-axis label */}
-                <div className="text-sm text-gray-100 mt-3 text-center w-full font-bold leading-tight px-1">
+                <div className="text-sm text-gray-100 mt-3 text-center w-full font-bold leading-tight px-1 absolute bottom-0" style={{ transform: 'translateY(2.5rem)' }}>
                   {label}
                 </div>
               </div>
