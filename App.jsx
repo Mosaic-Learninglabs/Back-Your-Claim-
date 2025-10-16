@@ -15,7 +15,7 @@ const CHARTS = [
       "📊 EVIDENCE: The data shows that...",
       "📊 EVIDENCE: This proves that..."
     ],
-    words: ["peak", "drops", "highest", "lowest", "significantly", "optimal"],
+    words: ["peaks at", "drops to", "highest score", "lowest score", "significantly lower", "optimal range", "decreases", "increases"],
     hint: "Where is happiness highest vs. lowest?",
     checks: ["Clear YES/NO", "Used scores", "Explained pattern"]
   },
@@ -33,7 +33,7 @@ const CHARTS = [
       "📊 EVIDENCE: The data shows that...",
       "📊 EVIDENCE: This means that..."
     ],
-    words: ["increasing", "improves", "higher", "compared to", "optimal"],
+    words: ["steadily increases", "improves by", "higher scores", "compared to", "much better", "significantly higher", "early morning", "later start"],
     hint: "Compare earliest to latest - how big is the difference?",
     checks: ["Clear position", "Cited scores", "Explained why"]
   },
@@ -51,7 +51,7 @@ const CHARTS = [
       "📊 EVIDENCE: According to the data...",
       "📊 EVIDENCE: This shows that..."
     ],
-    words: ["trade-off", "balance", "peaks at", "excessive", "moderate"],
+    words: ["peaks at", "too much", "diminishing returns", "excessive homework", "sweet spot", "starts declining", "moderate amount", "becomes harmful"],
     hint: "GPA goes up but what about after 9-11 hours?",
     checks: ["Clear position", "Used data", "Mentioned wellbeing"]
   },
@@ -69,7 +69,7 @@ const CHARTS = [
       "📊 EVIDENCE: The chart shows that...",
       "📊 EVIDENCE: Compared to other methods..."
     ],
-    words: ["most effective", "highest", "engagement", "compared to", "better"],
+    words: ["most effective", "highest improvement", "clearly superior", "compared to", "much better", "active learning", "passive learning", "best results"],
     hint: "Best scores vs. what students enjoy?",
     checks: ["Clear choice", "Used numbers", "Explained why"]
   },
@@ -87,7 +87,7 @@ const CHARTS = [
       "📊 EVIDENCE: Looking at the data...",
       "📊 EVIDENCE: This difference proves that..."
     ],
-    words: ["highest", "most effective", "cost-effective", "compared to", "better"],
+    words: ["highest comprehension", "most effective", "clearly better", "compared to", "significant difference", "physical books", "digital reading", "percentage points"],
     hint: "Best scores vs. cost?",
     checks: ["Clear choice", "Used scores", "Explained benefits"]
   },
@@ -105,7 +105,7 @@ const CHARTS = [
       "📊 EVIDENCE: The graph shows that...",
       "📊 EVIDENCE: This pattern proves that..."
     ],
-    words: ["decreases", "drops", "lower", "compared to", "attention", "dramatically"],
+    words: ["dramatically decreases", "drops significantly", "much lower", "compared to", "individual attention", "smaller classes", "larger classes", "steep decline"],
     hint: "Where do scores drop the most?",
     checks: ["YES/NO position", "Used scores", "Explained why"]
   },
@@ -123,7 +123,7 @@ const CHARTS = [
       "📊 EVIDENCE: The data shows that...",
       "📊 EVIDENCE: Compared to other methods..."
     ],
-    words: ["most effective", "highest gains", "efficient", "compared to", "optimal"],
+    words: ["most effective", "highest gains", "clearly superior", "compared to", "mixed methods", "conversation practice", "language development", "best approach"],
     hint: "Which gives biggest improvement?",
     checks: ["Clear choice", "Used numbers", "Explained why"]
   },
@@ -141,7 +141,7 @@ const CHARTS = [
       "📊 EVIDENCE: The data shows that...",
       "📊 EVIDENCE: This proves that..."
     ],
-    words: ["dramatically", "impacts", "compared to", "declines", "less", "harmful"],
+    words: ["dramatically impacts", "sleep quality", "significantly less", "compared to", "harmful effects", "blue light", "before bedtime", "noticeable difference"],
     hint: "What's the biggest drop?",
     checks: ["YES/NO position", "Used sleep hours", "Made recommendation"]
   },
@@ -159,7 +159,7 @@ const CHARTS = [
       "📊 EVIDENCE: According to the chart...",
       "📊 EVIDENCE: This shows that..."
     ],
-    words: ["highest", "most popular", "participation", "compared to", "benefits"],
+    words: ["highest participation", "most popular", "student interest", "compared to", "clear preference", "academic support", "physical activity", "engagement levels"],
     hint: "Most students vs. other benefits?",
     checks: ["Clear choice", "Used participation %", "Explained benefits"]
   },
@@ -177,7 +177,7 @@ const CHARTS = [
       "📊 EVIDENCE: The data shows that...",
       "📊 EVIDENCE: This means that..."
     ],
-    words: ["most popular", "healthier", "balance", "compared to", "preferred"],
+    words: ["most popular", "healthier options", "need balance", "compared to", "student preferences", "nutrition matters", "what students want", "huge difference"],
     hint: "Most chosen vs. healthiest?",
     checks: ["Clear position", "Used data", "Explained priority"]
   }
