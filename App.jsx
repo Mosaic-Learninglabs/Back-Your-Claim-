@@ -189,12 +189,15 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
   const max = Math.max(...values);
   const min = Math.min(...values);
 
-  // Calculate appropriate scale to ensure accurate visual representation
-  // Use contextual scaling: if min value is above 50% of max, don't start from 0
-  // This prevents misleading visualizations (e.g., showing 72 vs 86 as if 72 is near zero)
-  const shouldStartFromZero = min < max * 0.5 || max <= 10;
-  const scaleMin = shouldStartFromZero ? 0 : Math.floor(min * 0.9 / 10) * 10;
-  const scaleMax = Math.ceil(max * 1.1 / 10) * 10;
+  // Calculate scale for maximum visual clarity for students
+  // Goal: Make differences visually obvious while remaining accurate
+  // Strategy: Tight scaling around data range so bars fill 60-95% of chart height
+  const dataRange = max - min;
+
+  // For small/percentage data (<=10), always start from 0 for context
+  // For larger values: use tight scaling with 15% padding below and above
+  const scaleMin = max <= 10 ? 0 : Math.max(0, Math.floor((min - dataRange * 0.15) / 10) * 10);
+  const scaleMax = max <= 10 ? Math.ceil(max * 1.15) : Math.ceil((max + dataRange * 0.15) / 10) * 10;
   const range = scaleMax - scaleMin;
 
   return (
@@ -264,12 +267,15 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
   const max = Math.max(...values);
   const min = Math.min(...values);
 
-  // Calculate appropriate scale to ensure accurate visual representation
-  // Use contextual scaling: if min value is above 50% of max, don't start from 0
-  // This prevents misleading visualizations (e.g., showing 72 vs 86 as if 72 is near zero)
-  const shouldStartFromZero = min < max * 0.5 || max <= 10;
-  const scaleMin = shouldStartFromZero ? 0 : Math.floor(min * 0.9 / 10) * 10;
-  const scaleMax = Math.ceil(max * 1.1 / 10) * 10;
+  // Calculate scale for maximum visual clarity for students
+  // Goal: Make differences visually obvious while remaining accurate
+  // Strategy: Tight scaling around data range so line fills 60-95% of chart height
+  const dataRange = max - min;
+
+  // For small/percentage data (<=10), always start from 0 for context
+  // For larger values: use tight scaling with 15% padding below and above
+  const scaleMin = max <= 10 ? 0 : Math.max(0, Math.floor((min - dataRange * 0.15) / 10) * 10);
+  const scaleMax = max <= 10 ? Math.ceil(max * 1.15) : Math.ceil((max + dataRange * 0.15) / 10) * 10;
   const range = scaleMax - scaleMin;
 
   // Add padding to show labels clearly - more space for larger labels
