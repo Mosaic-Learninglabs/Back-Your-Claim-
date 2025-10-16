@@ -1,0 +1,10 @@
+{
+  "routes": [
+    {
+      "src": "/App.jsx",
+      "headers": {
+        "Content-Type": "text/babel"
+      }
+    }
+  ]
+}
