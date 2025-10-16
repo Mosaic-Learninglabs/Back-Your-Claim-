@@ -203,22 +203,22 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
   return (
     <div className="w-full">
       <h4 className="text-lg font-bold text-center mb-6 text-cyan-200 px-2">{title}</h4>
-      <div className="relative px-4 pb-2 pl-20">
+      <div className="relative px-4 pb-2 pl-24">
         {/* Y-axis label */}
-        <div className="absolute left-3 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-black text-cyan-200 whitespace-nowrap">
+        <div className="absolute left-1 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-black text-cyan-200 whitespace-nowrap">
           {yLabel}
         </div>
 
         {/* Chart area */}
-        <div className="flex items-end justify-around h-64 gap-3 pl-16 pr-4 pt-8 pb-2 border-l-4 border-b-4 border-cyan-400/70 rounded-bl-lg relative">
+        <div className="flex items-end justify-around h-64 gap-3 pl-20 pr-4 pt-8 pb-2 border-l-4 border-b-4 border-cyan-400/70 rounded-bl-lg relative">
           {/* Y-axis grid lines with labels */}
-          <div className="absolute left-16 right-4 top-8 bottom-14 pointer-events-none">
+          <div className="absolute left-20 right-4 top-8 bottom-16 pointer-events-none">
             {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
               const labelValue = Math.round(scaleMin + ratio * range);
               return (
                 <div key={ratio} className="absolute left-0 right-0" style={{ bottom: `${ratio * 100}%` }}>
                   <div className="border-t border-gray-600/50"></div>
-                  <div className="absolute -left-[3.5rem] -translate-y-1/2 text-sm text-gray-200 font-bold w-12 text-right">
+                  <div className="absolute -left-[4.25rem] -translate-y-1/2 text-sm text-gray-200 font-bold w-14 text-right">
                     {labelValue}
                   </div>
                 </div>
@@ -229,7 +229,7 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
           {entries.map(([label, value]) => {
             const heightPercent = ((value - scaleMin) / range) * 100;
             return (
-              <div key={label} className="flex flex-col items-center flex-1 justify-end relative z-10" style={{ height: 'calc(100% - 3.5rem)' }}>
+              <div key={label} className="flex flex-col items-center flex-1 justify-end relative z-10" style={{ height: 'calc(100% - 4rem)' }}>
                 {/* Bar */}
                 <div
                   className="w-full rounded-t-xl shadow-lg transition-all duration-300 hover:opacity-90"
@@ -240,7 +240,7 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
                   }}
                 />
                 {/* X-axis label */}
-                <div className="text-sm text-gray-100 mt-3 text-center w-full font-bold leading-tight px-1 absolute bottom-0" style={{ transform: 'translateY(2.5rem)' }}>
+                <div className="text-sm text-gray-100 mt-4 text-center w-full font-bold leading-tight px-1 absolute bottom-0" style={{ transform: 'translateY(2.75rem)' }}>
                   {label}
                 </div>
               </div>
@@ -249,7 +249,7 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
         </div>
 
         {/* X-axis label */}
-        <div className="text-sm font-black text-cyan-200 text-center mt-4">
+        <div className="text-sm font-black text-cyan-200 text-center mt-6">
           {xLabel}
         </div>
       </div>
@@ -275,20 +275,20 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
   const range = scaleMax - scaleMin;
 
   // Add padding to show labels clearly - more space for larger labels
-  const padding = { top: 40, right: 40, bottom: 70, left: 75 };
+  const padding = { top: 40, right: 40, bottom: 80, left: 80 };
   const chartWidth = 400 - padding.left - padding.right;
   const chartHeight = 240 - padding.top - padding.bottom;
 
   return (
     <div className="w-full">
       <h4 className="text-lg font-bold text-center mb-6 text-cyan-200 px-2">{title}</h4>
-      <div className="relative pl-4">
+      <div className="relative pl-2">
         {/* Y-axis label */}
-        <div className="absolute left-6 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-black text-cyan-200 whitespace-nowrap">
+        <div className="absolute left-2 top-1/2 -translate-y-1/2 -rotate-90 text-sm font-black text-cyan-200 whitespace-nowrap">
           {yLabel}
         </div>
 
-        <svg width="100%" height="260" viewBox="0 0 400 260" className="mx-auto">
+        <svg width="100%" height="280" viewBox="0 0 400 280" className="mx-auto">
           {/* Grid lines with Y-axis labels */}
           {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
             const labelValue = (scaleMin + ratio * range).toFixed(1);
@@ -387,7 +387,7 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
                 {/* X-axis label */}
                 <text
                   x={x}
-                  y={padding.top + chartHeight + 20}
+                  y={padding.top + chartHeight + 25}
                   textAnchor="middle"
                   fill="#e5e7eb"
                   fontSize="12"
@@ -402,7 +402,7 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
           {/* X-axis label */}
           <text
             x="200"
-            y="255"
+            y="270"
             textAnchor="middle"
             fill="#a5f3fc"
             fontSize="14"
