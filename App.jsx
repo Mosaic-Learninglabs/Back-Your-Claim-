@@ -12,8 +12,8 @@ const CHARTS = [
     type: "line",
     starters: [
       "🎯 CLAIM: Schools should [YES/NO] teach limits on social media because...",
-      "📊 EVIDENCE: The data shows happiness is highest at ___ hours and drops to ___ at ___ hours.",
-      "📊 EVIDENCE: This pattern proves that social media use..."
+      "📊 EVIDENCE: The data shows that...",
+      "📊 EVIDENCE: This proves that..."
     ],
     words: ["peak", "drops", "highest", "lowest", "significantly", "optimal"],
     hint: "Where is happiness highest vs. lowest?",
@@ -30,8 +30,8 @@ const CHARTS = [
     type: "bar",
     starters: [
       "🎯 CLAIM: Schools should [YES/NO] start at 8:30 AM or later because...",
-      "📊 EVIDENCE: At 7:00 AM, test scores are ___, but at 8:30 AM they reach ___.",
-      "📊 EVIDENCE: This ___-point difference shows that later start times..."
+      "📊 EVIDENCE: The data shows that...",
+      "📊 EVIDENCE: This means that..."
     ],
     words: ["increasing", "improves", "higher", "compared to", "optimal"],
     hint: "Compare earliest to latest - how big is the difference?",
@@ -48,8 +48,8 @@ const CHARTS = [
     type: "line",
     starters: [
       "🎯 CLAIM: Teachers should [YES/NO] reduce homework because...",
-      "📊 EVIDENCE: GPA peaks at ___ with ___-___ hours, but drops to ___ with 12+ hours.",
-      "📊 EVIDENCE: This shows that excessive homework..."
+      "📊 EVIDENCE: According to the data...",
+      "📊 EVIDENCE: This shows that..."
     ],
     words: ["trade-off", "balance", "peaks at", "excessive", "moderate"],
     hint: "GPA goes up but what about after 9-11 hours?",
@@ -66,8 +66,8 @@ const CHARTS = [
     type: "bar",
     starters: [
       "🎯 CLAIM: Teachers should use [PRACTICE TESTS/GAMES] because...",
-      "📊 EVIDENCE: Practice tests improve scores by ___ points, while games improve by ___ points.",
-      "📊 EVIDENCE: Compared to other methods like ___, this shows..."
+      "📊 EVIDENCE: The chart shows that...",
+      "📊 EVIDENCE: Compared to other methods..."
     ],
     words: ["most effective", "highest", "engagement", "compared to", "better"],
     hint: "Best scores vs. what students enjoy?",
@@ -84,8 +84,8 @@ const CHARTS = [
     type: "bar",
     starters: [
       "🎯 CLAIM: Schools should invest in [PHYSICAL BOOKS/DIGITAL DEVICES] because...",
-      "📊 EVIDENCE: Physical books achieve ___% comprehension, while e-books achieve ___% comprehension.",
-      "📊 EVIDENCE: This ___% difference proves that..."
+      "📊 EVIDENCE: Looking at the data...",
+      "📊 EVIDENCE: This difference proves that..."
     ],
     words: ["highest", "most effective", "cost-effective", "compared to", "better"],
     hint: "Best scores vs. cost?",
@@ -102,8 +102,8 @@ const CHARTS = [
     type: "line",
     starters: [
       "🎯 CLAIM: Schools should [YES/NO] limit class sizes to 20 or less because...",
-      "📊 EVIDENCE: Classes of 15 students score ___, but classes of 35 score ___.",
-      "📊 EVIDENCE: This ___-point drop shows that larger classes..."
+      "📊 EVIDENCE: The graph shows that...",
+      "📊 EVIDENCE: This pattern proves that..."
     ],
     words: ["decreases", "drops", "lower", "compared to", "attention", "dramatically"],
     hint: "Where do scores drop the most?",
@@ -120,8 +120,8 @@ const CHARTS = [
     type: "bar",
     starters: [
       "🎯 CLAIM: ELL students should use [CONVERSATION/MIXED METHODS] because...",
-      "📊 EVIDENCE: Conversation practice gains ___ points, while mixed methods gain ___ points.",
-      "📊 EVIDENCE: Compared to other methods like grammar (___), this shows..."
+      "📊 EVIDENCE: The data shows that...",
+      "📊 EVIDENCE: Compared to other methods..."
     ],
     words: ["most effective", "highest gains", "efficient", "compared to", "optimal"],
     hint: "Which gives biggest improvement?",
@@ -138,8 +138,8 @@ const CHARTS = [
     type: "line",
     starters: [
       "🎯 CLAIM: Families should [YES/NO] ban screens 1 hour before bed because...",
-      "📊 EVIDENCE: Zero screen time gives ___ hours of sleep, while 60+ minutes gives only ___ hours.",
-      "📊 EVIDENCE: This ___-hour difference shows that screens..."
+      "📊 EVIDENCE: The data shows that...",
+      "📊 EVIDENCE: This proves that..."
     ],
     words: ["dramatically", "impacts", "compared to", "declines", "less", "harmful"],
     hint: "What's the biggest drop?",
@@ -156,8 +156,8 @@ const CHARTS = [
     type: "bar",
     starters: [
       "🎯 CLAIM: Schools should spend more on [SPORTS/ACADEMICS] because...",
-      "📊 EVIDENCE: Sports have ___% participation, while tutoring has ___% participation.",
-      "📊 EVIDENCE: This shows that students prefer..., which means schools should..."
+      "📊 EVIDENCE: According to the chart...",
+      "📊 EVIDENCE: This shows that..."
     ],
     words: ["highest", "most popular", "participation", "compared to", "benefits"],
     hint: "Most students vs. other benefits?",
@@ -174,8 +174,8 @@ const CHARTS = [
     type: "bar",
     starters: [
       "🎯 CLAIM: Schools should prioritize [POPULAR/HEALTHY] foods because...",
-      "📊 EVIDENCE: ___% of students choose pizza, but only ___% choose salad.",
-      "📊 EVIDENCE: This ___% gap shows that schools should balance..."
+      "📊 EVIDENCE: The data shows that...",
+      "📊 EVIDENCE: This means that..."
     ],
     words: ["most popular", "healthier", "balance", "compared to", "preferred"],
     hint: "Most chosen vs. healthiest?",
