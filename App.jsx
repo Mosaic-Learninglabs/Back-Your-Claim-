@@ -417,6 +417,66 @@ const ScreenWrapper = ({ children, className = "" }) => (
   </div>
 );
 
+// Navigation dropdown menu component - MUST be outside App to prevent re-creation
+const NavigationMenu = ({ currentRound, onNavigate, screen }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <div className="fixed top-4 left-4 z-50">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="bg-slate-800/90 backdrop-blur-xl border-2 border-cyan-400/70 rounded-xl px-4 py-3 text-white font-bold hover:scale-105 transition-all shadow-2xl flex items-center gap-2"
+      >
+        <span className="text-xl">☰</span>
+        <span className="hidden sm:inline">Menu</span>
+      </button>
+
+      {isOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-40"
+            onClick={() => setIsOpen(false)}
+          />
+          <div className="absolute top-16 left-0 bg-slate-800/95 backdrop-blur-xl border-2 border-cyan-400/70 rounded-xl shadow-2xl overflow-hidden z-50 animate-slideDown">
+            <div className="p-3 bg-cyan-600/30 border-b border-cyan-400/50">
+              <div className="text-cyan-200 font-black text-sm">NAVIGATION</div>
+            </div>
+            <div className="max-h-[60vh] overflow-y-auto">
+              <button
+                onClick={() => { onNavigate('home'); setIsOpen(false); }}
+                className="w-full px-4 py-3 text-left text-white hover:bg-cyan-600/30 transition-all font-bold border-b border-slate-700/50 flex items-center gap-2"
+              >
+                <span className="text-lg">🏠</span>
+                <span>Home</span>
+              </button>
+              {screen !== 'mode' && screen !== 'setup' && (
+                <>
+                  <div className="px-4 py-2 text-xs font-black text-cyan-300 bg-slate-900/50">
+                    JUMP TO ROUND:
+                  </div>
+                  {CHARTS.map((chart, idx) => (
+                    <button
+                      key={chart.id}
+                      onClick={() => { onNavigate('round', idx); setIsOpen(false); }}
+                      className={`w-full px-4 py-3 text-left hover:bg-purple-600/30 transition-all border-b border-slate-700/50 flex items-center gap-3 ${
+                        currentRound === idx ? 'bg-purple-600/40 text-cyan-300 font-black' : 'text-white font-bold'
+                      }`}
+                    >
+                      <span className="text-base">{idx + 1}.</span>
+                      <span className="text-sm flex-1">{chart.title}</span>
+                      {currentRound === idx && <span className="text-cyan-300">←</span>}
+                    </button>
+                  ))}
+                </>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
 function App() {
   const [screen, setScreen] = useState('mode');
   const [mode, setMode] = useState(null);
@@ -513,9 +573,23 @@ function App() {
     setHint(false);
   };
 
+  const handleNavigate = (type, roundIndex) => {
+    if (type === 'home') {
+      reset();
+    } else if (type === 'round') {
+      setRound(roundIndex);
+      setTimer(120);
+      setActive(false);
+      setHint(false);
+      setShowHint(false);
+      setScreen('play');
+    }
+  };
+
   if (screen === 'mode') {
     return (
       <ScreenWrapper>
+        <NavigationMenu currentRound={round} onNavigate={handleNavigate} screen={screen} />
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8 flex items-center justify-center">
           <div className="max-w-4xl w-full text-center">
             <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-pink-300 mb-8 animate-slideDown">
@@ -553,6 +627,7 @@ function App() {
   if (screen === 'setup') {
     return (
       <ScreenWrapper>
+        <NavigationMenu currentRound={round} onNavigate={handleNavigate} screen={screen} />
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8">
           <div className="max-w-5xl mx-auto">
             <h1 className="text-5xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-pink-300 mb-8">
@@ -632,6 +707,7 @@ function App() {
 
     return (
       <ScreenWrapper>
+        <NavigationMenu currentRound={round} onNavigate={handleNavigate} screen={screen} />
         <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4 md:p-6">
           <div className="max-w-[1800px] mx-auto">
 
@@ -825,6 +901,7 @@ function App() {
   if (screen === 'end') {
     return (
       <ScreenWrapper>
+        <NavigationMenu currentRound={round} onNavigate={handleNavigate} screen={screen} />
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8 flex items-center justify-center">
           <div className="max-w-3xl w-full">
             <div className="bg-white/10 backdrop-blur-xl border-2 border-yellow-400/50 rounded-3xl p-10 text-center shadow-2xl">
@@ -859,6 +936,7 @@ function App() {
     const winning = winner === 'A' ? teamA : winner === 'B' ? teamB : null;
     return (
       <ScreenWrapper>
+        <NavigationMenu currentRound={round} onNavigate={handleNavigate} screen={screen} />
         <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-8 flex items-center justify-center">
           <div className="max-w-3xl w-full">
             <div className="bg-white/10 backdrop-blur-xl border-2 border-yellow-400/50 rounded-3xl p-10 text-center shadow-2xl">
