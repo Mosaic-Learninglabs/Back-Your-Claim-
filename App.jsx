@@ -11,9 +11,9 @@ const CHARTS = [
     yLabel: "Happiness Score",
     type: "line",
     starters: [
-      "I believe schools should [teach/not teach] limits because...",
-      "The data shows {number} hours leads to...",
-      "Students need [guidance/freedom] because..."
+      "🎯 CLAIM: Schools should [YES/NO] teach limits on social media because...",
+      "📊 EVIDENCE: The data shows happiness is highest at ___ hours and drops to ___ at ___ hours.",
+      "📊 EVIDENCE: This pattern proves that social media use..."
     ],
     words: ["peak", "drops", "highest", "lowest", "significantly", "optimal"],
     hint: "Where is happiness highest vs. lowest?",
@@ -29,9 +29,9 @@ const CHARTS = [
     yLabel: "Test Score",
     type: "bar",
     starters: [
-      "Schools should [start later/keep time] because...",
-      "At {time}, test scores are...",
-      "This shows that..."
+      "🎯 CLAIM: Schools should [YES/NO] start at 8:30 AM or later because...",
+      "📊 EVIDENCE: At 7:00 AM, test scores are ___, but at 8:30 AM they reach ___.",
+      "📊 EVIDENCE: This ___-point difference shows that later start times..."
     ],
     words: ["increasing", "improves", "higher", "compared to", "optimal"],
     hint: "Compare earliest to latest - how big is the difference?",
@@ -47,9 +47,9 @@ const CHARTS = [
     yLabel: "GPA",
     type: "line",
     starters: [
-      "Teachers should [reduce/maintain] homework because...",
-      "After {number} hours, homework becomes...",
-      "This shows..."
+      "🎯 CLAIM: Teachers should [YES/NO] reduce homework because...",
+      "📊 EVIDENCE: GPA peaks at ___ with ___-___ hours, but drops to ___ with 12+ hours.",
+      "📊 EVIDENCE: This shows that excessive homework..."
     ],
     words: ["trade-off", "balance", "peaks at", "excessive", "moderate"],
     hint: "GPA goes up but what about after 9-11 hours?",
@@ -65,9 +65,9 @@ const CHARTS = [
     yLabel: "Points Improved",
     type: "bar",
     starters: [
-      "Teachers should use {method} because...",
-      "{Method} improves scores by {number}...",
-      "The best method is..."
+      "🎯 CLAIM: Teachers should use [PRACTICE TESTS/GAMES] because...",
+      "📊 EVIDENCE: Practice tests improve scores by ___ points, while games improve by ___ points.",
+      "📊 EVIDENCE: Compared to other methods like ___, this shows..."
     ],
     words: ["most effective", "highest", "engagement", "compared to", "better"],
     hint: "Best scores vs. what students enjoy?",
@@ -83,9 +83,9 @@ const CHARTS = [
     yLabel: "Comprehension %",
     type: "bar",
     starters: [
-      "Schools should invest in {format} because...",
-      "This proves {format} leads to...",
-      "Best choice is..."
+      "🎯 CLAIM: Schools should invest in [PHYSICAL BOOKS/DIGITAL DEVICES] because...",
+      "📊 EVIDENCE: Physical books achieve ___% comprehension, while e-books achieve ___% comprehension.",
+      "📊 EVIDENCE: This ___% difference proves that..."
     ],
     words: ["highest", "most effective", "cost-effective", "compared to", "better"],
     hint: "Best scores vs. cost?",
@@ -101,9 +101,9 @@ const CHARTS = [
     yLabel: "Performance Score",
     type: "line",
     starters: [
-      "Schools should [limit/not limit] because...",
-      "With {number} students, scores are...",
-      "Students learn better when..."
+      "🎯 CLAIM: Schools should [YES/NO] limit class sizes to 20 or less because...",
+      "📊 EVIDENCE: Classes of 15 students score ___, but classes of 35 score ___.",
+      "📊 EVIDENCE: This ___-point drop shows that larger classes..."
     ],
     words: ["decreases", "drops", "lower", "compared to", "attention", "dramatically"],
     hint: "Where do scores drop the most?",
@@ -119,9 +119,9 @@ const CHARTS = [
     yLabel: "Points Gained",
     type: "bar",
     starters: [
-      "{Method} is best because...",
-      "ELL students benefit most from...",
-      "Based on improvement..."
+      "🎯 CLAIM: ELL students should use [CONVERSATION/MIXED METHODS] because...",
+      "📊 EVIDENCE: Conversation practice gains ___ points, while mixed methods gain ___ points.",
+      "📊 EVIDENCE: Compared to other methods like grammar (___), this shows..."
     ],
     words: ["most effective", "highest gains", "efficient", "compared to", "optimal"],
     hint: "Which gives biggest improvement?",
@@ -137,9 +137,9 @@ const CHARTS = [
     yLabel: "Hours of Sleep",
     type: "line",
     starters: [
-      "Families should [ban/allow] screens because...",
-      "{Amount} screen time results in...",
-      "Teens need..."
+      "🎯 CLAIM: Families should [YES/NO] ban screens 1 hour before bed because...",
+      "📊 EVIDENCE: Zero screen time gives ___ hours of sleep, while 60+ minutes gives only ___ hours.",
+      "📊 EVIDENCE: This ___-hour difference shows that screens..."
     ],
     words: ["dramatically", "impacts", "compared to", "declines", "less", "harmful"],
     hint: "What's the biggest drop?",
@@ -155,9 +155,9 @@ const CHARTS = [
     yLabel: "Participation %",
     type: "bar",
     starters: [
-      "Schools should spend more on {sports/academics} because...",
-      "{Activity} has {percentage}% participation...",
-      "{Choice} helps students because..."
+      "🎯 CLAIM: Schools should spend more on [SPORTS/ACADEMICS] because...",
+      "📊 EVIDENCE: Sports have ___% participation, while tutoring has ___% participation.",
+      "📊 EVIDENCE: This shows that students prefer..., which means schools should..."
     ],
     words: ["highest", "most popular", "participation", "compared to", "benefits"],
     hint: "Most students vs. other benefits?",
@@ -173,9 +173,9 @@ const CHARTS = [
     yLabel: "Student Choice %",
     type: "bar",
     starters: [
-      "Schools should prioritize {popular/healthy} because...",
-      "{Percentage}% choose {option} but...",
-      "Best approach is..."
+      "🎯 CLAIM: Schools should prioritize [POPULAR/HEALTHY] foods because...",
+      "📊 EVIDENCE: ___% of students choose pizza, but only ___% choose salad.",
+      "📊 EVIDENCE: This ___% gap shows that schools should balance..."
     ],
     words: ["most popular", "healthier", "balance", "compared to", "preferred"],
     hint: "Most chosen vs. healthiest?",
