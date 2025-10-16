@@ -189,9 +189,11 @@ const BarChart = ({ data, title, xLabel, yLabel }) => {
   const max = Math.max(...values);
   const min = Math.min(...values);
 
-  // Calculate appropriate scale: start from 0 unless all values are high (> 50)
-  // This ensures students see accurate proportions
-  const scaleMin = min > 50 ? Math.floor(min * 0.8 / 10) * 10 : 0;
+  // Calculate appropriate scale to ensure accurate visual representation
+  // Use contextual scaling: if min value is above 50% of max, don't start from 0
+  // This prevents misleading visualizations (e.g., showing 72 vs 86 as if 72 is near zero)
+  const shouldStartFromZero = min < max * 0.5 || max <= 10;
+  const scaleMin = shouldStartFromZero ? 0 : Math.floor(min * 0.9 / 10) * 10;
   const scaleMax = Math.ceil(max * 1.1 / 10) * 10;
   const range = scaleMax - scaleMin;
 
@@ -262,9 +264,11 @@ const LineChart = ({ data, title, xLabel, yLabel }) => {
   const max = Math.max(...values);
   const min = Math.min(...values);
 
-  // Calculate appropriate scale: start from 0 unless all values are high (> 50)
-  // This ensures students see accurate proportions
-  const scaleMin = min > 50 ? Math.floor(min * 0.8 / 10) * 10 : 0;
+  // Calculate appropriate scale to ensure accurate visual representation
+  // Use contextual scaling: if min value is above 50% of max, don't start from 0
+  // This prevents misleading visualizations (e.g., showing 72 vs 86 as if 72 is near zero)
+  const shouldStartFromZero = min < max * 0.5 || max <= 10;
+  const scaleMin = shouldStartFromZero ? 0 : Math.floor(min * 0.9 / 10) * 10;
   const scaleMax = Math.ceil(max * 1.1 / 10) * 10;
   const range = scaleMax - scaleMin;
 
