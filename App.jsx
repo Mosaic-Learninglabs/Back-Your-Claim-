@@ -14,12 +14,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Schools should [YES/NO] teach limits on social media because...",
         "📊 EVIDENCE: The data shows that...",
-        "📊 EVIDENCE: This proves that..."
+        "🧠 REASONING: This proves that..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Las escuelas [SÍ/NO] deberían enseñar límites en redes sociales porque...",
         "📊 EVIDENCIA: Los datos muestran que...",
-        "📊 EVIDENCIA: Esto prueba que..."
+        "🧠 RAZONAMIENTO: Esto prueba que..."
       ]
     },
     words: {
@@ -45,12 +45,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Schools should [YES/NO] start at 8:30 AM or later because...",
         "📊 EVIDENCE: The data shows that...",
-        "📊 EVIDENCE: This means that..."
+        "🧠 REASONING: This means that..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Las escuelas [SÍ/NO] deberían comenzar a las 8:30 AM o más tarde porque...",
         "📊 EVIDENCIA: Los datos muestran que...",
-        "📊 EVIDENCIA: Esto significa que..."
+        "🧠 RAZONAMIENTO: Esto significa que..."
       ]
     },
     words: {
@@ -76,12 +76,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Teachers should [YES/NO] reduce homework because...",
         "📊 EVIDENCE: According to the data...",
-        "📊 EVIDENCE: This shows that..."
+        "🧠 REASONING: This shows that..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Los maestros [SÍ/NO] deberían reducir la tarea porque...",
         "📊 EVIDENCIA: Según los datos...",
-        "📊 EVIDENCIA: Esto muestra que..."
+        "🧠 RAZONAMIENTO: Esto muestra que..."
       ]
     },
     words: {
@@ -107,12 +107,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Teachers should use [PRACTICE TESTS/GAMES] because...",
         "📊 EVIDENCE: The chart shows that...",
-        "📊 EVIDENCE: Compared to other methods..."
+        "🧠 REASONING: Compared to other methods..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Los maestros deberían usar [EXÁMENES DE PRÁCTICA/JUEGOS] porque...",
         "📊 EVIDENCIA: La gráfica muestra que...",
-        "📊 EVIDENCIA: Comparado con otros métodos..."
+        "🧠 RAZONAMIENTO: Comparado con otros métodos..."
       ]
     },
     words: {
@@ -138,12 +138,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Schools should invest in [PHYSICAL BOOKS/DIGITAL DEVICES] because...",
         "📊 EVIDENCE: Looking at the data...",
-        "📊 EVIDENCE: This difference proves that..."
+        "🧠 REASONING: This difference proves that..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Las escuelas deberían invertir en [LIBROS FÍSICOS/DISPOSITIVOS DIGITALES] porque...",
         "📊 EVIDENCIA: Mirando los datos...",
-        "📊 EVIDENCIA: Esta diferencia prueba que..."
+        "🧠 RAZONAMIENTO: Esta diferencia prueba que..."
       ]
     },
     words: {
@@ -169,12 +169,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Schools should [YES/NO] limit class sizes to 20 or less because...",
         "📊 EVIDENCE: The graph shows that...",
-        "📊 EVIDENCE: This pattern proves that..."
+        "🧠 REASONING: This pattern proves that..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Las escuelas [SÍ/NO] deberían limitar el tamaño de las clases a 20 o menos porque...",
         "📊 EVIDENCIA: La gráfica muestra que...",
-        "📊 EVIDENCIA: Este patrón prueba que..."
+        "🧠 RAZONAMIENTO: Este patrón prueba que..."
       ]
     },
     words: {
@@ -200,12 +200,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: ELL students should use [CONVERSATION/MIXED METHODS] because...",
         "📊 EVIDENCE: The data shows that...",
-        "📊 EVIDENCE: Compared to other methods..."
+        "🧠 REASONING: Compared to other methods..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Los estudiantes de inglés deberían usar [CONVERSACIÓN/MÉTODOS MIXTOS] porque...",
         "📊 EVIDENCIA: Los datos muestran que...",
-        "📊 EVIDENCIA: Comparado con otros métodos..."
+        "🧠 RAZONAMIENTO: Comparado con otros métodos..."
       ]
     },
     words: {
@@ -231,12 +231,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Families should [YES/NO] ban screens 1 hour before bed because...",
         "📊 EVIDENCE: The data shows that...",
-        "📊 EVIDENCE: This proves that..."
+        "🧠 REASONING: This proves that..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Las familias [SÍ/NO] deberían prohibir pantallas 1 hora antes de dormir porque...",
         "📊 EVIDENCIA: Los datos muestran que...",
-        "📊 EVIDENCIA: Esto prueba que..."
+        "🧠 RAZONAMIENTO: Esto prueba que..."
       ]
     },
     words: {
@@ -262,12 +262,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Schools should spend more on [SPORTS/ACADEMICS] because...",
         "📊 EVIDENCE: According to the chart...",
-        "📊 EVIDENCE: This shows that..."
+        "🧠 REASONING: This shows that..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Las escuelas deberían gastar más en [DEPORTES/ACADÉMICOS] porque...",
         "📊 EVIDENCIA: Según la gráfica...",
-        "📊 EVIDENCIA: Esto muestra que..."
+        "🧠 RAZONAMIENTO: Esto muestra que..."
       ]
     },
     words: {
@@ -293,12 +293,12 @@ const CHARTS = [
       en: [
         "🎯 CLAIM: Schools should prioritize [POPULAR/HEALTHY] foods because...",
         "📊 EVIDENCE: The data shows that...",
-        "📊 EVIDENCE: This means that..."
+        "🧠 REASONING: This means that..."
       ],
       es: [
         "🎯 AFIRMACIÓN: Las escuelas deberían priorizar comidas [POPULARES/SALUDABLES] porque...",
         "📊 EVIDENCIA: Los datos muestran que...",
-        "📊 EVIDENCIA: Esto significa que..."
+        "🧠 RAZONAMIENTO: Esto significa que..."
       ]
     },
     words: {
